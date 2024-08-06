@@ -10,6 +10,7 @@ import {
 } from "fastify-type-provider-zod";
 
 import { errorHandler } from "./errors";
+import { getAllCategories } from "./routes/category/get-all-category";
 
 export const app = fastify().withTypeProvider<ZodTypeProvider>();
 
@@ -39,3 +40,5 @@ app.register(fastifyCors, {
 });
 
 app.setErrorHandler(errorHandler);
+
+app.register(getAllCategories)
